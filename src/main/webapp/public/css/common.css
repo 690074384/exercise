@@ -1,0 +1,60 @@
+#mr .hour-td {
+    border-right: thin dashed #ff0000;
+    text-align: left;
+    font-size:12px;
+    width: 2.5%;
+}
+
+#mr .not-hour {
+    border-left: none;
+    width: 2.5%;
+}
+
+#mr .small {
+    display: none;
+    width: 4%;
+}
+
+.tTime-num #datetimepicker {
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #444;
+    width: 120px;
+    padding-left: 30px;
+    cursor: pointer;
+    outline: black solid 1px;
+}
+
+.glyphicon:empty {
+    width: 1em;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#mr .arrow {
+    width:2%;
+}
+#mr .arrow:hover {
+    background-color:#6f6868;
+    cursor: pointer;
+}
+
+.inline-select {
+    width: 130px;
+    display: inline;
+}
+
+a:hover {
+    cursor: pointer;
+}

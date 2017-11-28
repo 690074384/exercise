@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exercise.mapper.QuestionMainMapper" >
+  <resultMap id="BaseResultMap" type="com.exercise.po.QuestionMain" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="source_type" property="source_type" jdbcType="VARCHAR" />
+    <result column="question_type" property="question_type" jdbcType="VARCHAR" />
+    <result column="content_type" property="content_type" jdbcType="VARCHAR" />
+    <result column="question_id" property="question_id" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
+    <result column="knowledge_tree_id" property="knowledge_tree_id" jdbcType="INTEGER" />
+    <result column="main_node_id" property="main_node_id" jdbcType="INTEGER" />
+    <result column="vice_node_id_1" property="vice_node_id_1" jdbcType="INTEGER" />
+    <result column="vice_node_id_2" property="vice_node_id_2" jdbcType="INTEGER" />
+    <result column="difficulty_value" property="difficulty_value" jdbcType="TINYINT" />
+    <result column="exam_province" property="exam_province" jdbcType="INTEGER" />
+    <result column="exam_session" property="exam_session" jdbcType="INTEGER" />
+    <result column="current_version" property="current_version" jdbcType="TINYINT" />
+    <result column="parent_question_id" property="parent_question_id" jdbcType="INTEGER" />
+    <result column="sequence" property="sequence" jdbcType="INTEGER" />
+    <result column="invalid_flag" property="invalid_flag" jdbcType="TINYINT" />
+    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="delete_flag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, source_type, question_type, content_type, question_id, score, knowledge_tree_id, 
+    main_node_id, vice_node_id_1, vice_node_id_2, difficulty_value, exam_province, exam_session, 
+    current_version, parent_question_id, sequence, invalid_flag, create_time, creator, 
+    update_time, operator, delete_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_question_main
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_question_main
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.po.QuestionMain" >
+    insert into t_question_main (id, code, source_type, 
+      question_type, content_type, question_id, 
+      score, knowledge_tree_id, main_node_id, 
+      vice_node_id_1, vice_node_id_2, difficulty_value, 
+      exam_province, exam_session, current_version, 
+      parent_question_id, sequence, invalid_flag, 
+      create_time, creator, update_time, 
+      operator, delete_flag)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{source_type,jdbcType=VARCHAR}, 
+      #{question_type,jdbcType=VARCHAR}, #{content_type,jdbcType=VARCHAR}, #{question_id,jdbcType=INTEGER}, 
+      #{score,jdbcType=DECIMAL}, #{knowledge_tree_id,jdbcType=INTEGER}, #{main_node_id,jdbcType=INTEGER}, 
+      #{vice_node_id_1,jdbcType=INTEGER}, #{vice_node_id_2,jdbcType=INTEGER}, #{difficulty_value,jdbcType=TINYINT}, 
+      #{exam_province,jdbcType=INTEGER}, #{exam_session,jdbcType=INTEGER}, #{current_version,jdbcType=TINYINT}, 
+      #{parent_question_id,jdbcType=INTEGER}, #{sequence,jdbcType=INTEGER}, #{invalid_flag,jdbcType=TINYINT}, 
+      #{create_time,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{update_time,jdbcType=TIMESTAMP}, 
+      #{operator,jdbcType=VARCHAR}, #{delete_flag,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.exercise.po.QuestionMain" >
+    insert into t_question_main
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="source_type != null" >
+        source_type,
+      </if>
+      <if test="question_type != null" >
+        question_type,
+      </if>
+      <if test="content_type != null" >
+        content_type,
+      </if>
+      <if test="question_id != null" >
+        question_id,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="knowledge_tree_id != null" >
+        knowledge_tree_id,
+      </if>
+      <if test="main_node_id != null" >
+        main_node_id,
+      </if>
+      <if test="vice_node_id_1 != null" >
+        vice_node_id_1,
+      </if>
+      <if test="vice_node_id_2 != null" >
+        vice_node_id_2,
+      </if>
+      <if test="difficulty_value != null" >
+        difficulty_value,
+      </if>
+      <if test="exam_province != null" >
+        exam_province,
+      </if>
+      <if test="exam_session != null" >
+        exam_session,
+      </if>
+      <if test="current_version != null" >
+        current_version,
+      </if>
+      <if test="parent_question_id != null" >
+        parent_question_id,
+      </if>
+      <if test="sequence != null" >
+        sequence,
+      </if>
+      <if test="invalid_flag != null" >
+        invalid_flag,
+      </if>
+      <if test="create_time != null" >
+        create_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="delete_flag != null" >
+        delete_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="source_type != null" >
+        #{source_type,jdbcType=VARCHAR},
+      </if>
+      <if test="question_type != null" >
+        #{question_type,jdbcType=VARCHAR},
+      </if>
+      <if test="content_type != null" >
+        #{content_type,jdbcType=VARCHAR},
+      </if>
+      <if test="question_id != null" >
+        #{question_id,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="knowledge_tree_id != null" >
+        #{knowledge_tree_id,jdbcType=INTEGER},
+      </if>
+      <if test="main_node_id != null" >
+        #{main_node_id,jdbcType=INTEGER},
+      </if>
+      <if test="vice_node_id_1 != null" >
+        #{vice_node_id_1,jdbcType=INTEGER},
+      </if>
+      <if test="vice_node_id_2 != null" >
+        #{vice_node_id_2,jdbcType=INTEGER},
+      </if>
+      <if test="difficulty_value != null" >
+        #{difficulty_value,jdbcType=TINYINT},
+      </if>
+      <if test="exam_province != null" >
+        #{exam_province,jdbcType=INTEGER},
+      </if>
+      <if test="exam_session != null" >
+        #{exam_session,jdbcType=INTEGER},
+      </if>
+      <if test="current_version != null" >
+        #{current_version,jdbcType=TINYINT},
+      </if>
+      <if test="parent_question_id != null" >
+        #{parent_question_id,jdbcType=INTEGER},
+      </if>
+      <if test="sequence != null" >
+        #{sequence,jdbcType=INTEGER},
+      </if>
+      <if test="invalid_flag != null" >
+        #{invalid_flag,jdbcType=TINYINT},
+      </if>
+      <if test="create_time != null" >
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="delete_flag != null" >
+        #{delete_flag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.exercise.po.QuestionMain" >
+    update t_question_main
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="source_type != null" >
+        source_type = #{source_type,jdbcType=VARCHAR},
+      </if>
+      <if test="question_type != null" >
+        question_type = #{question_type,jdbcType=VARCHAR},
+      </if>
+      <if test="content_type != null" >
+        content_type = #{content_type,jdbcType=VARCHAR},
+      </if>
+      <if test="question_id != null" >
+        question_id = #{question_id,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="knowledge_tree_id != null" >
+        knowledge_tree_id = #{knowledge_tree_id,jdbcType=INTEGER},
+      </if>
+      <if test="main_node_id != null" >
+        main_node_id = #{main_node_id,jdbcType=INTEGER},
+      </if>
+      <if test="vice_node_id_1 != null" >
+        vice_node_id_1 = #{vice_node_id_1,jdbcType=INTEGER},
+      </if>
+      <if test="vice_node_id_2 != null" >
+        vice_node_id_2 = #{vice_node_id_2,jdbcType=INTEGER},
+      </if>
+      <if test="difficulty_value != null" >
+        difficulty_value = #{difficulty_value,jdbcType=TINYINT},
+      </if>
+      <if test="exam_province != null" >
+        exam_province = #{exam_province,jdbcType=INTEGER},
+      </if>
+      <if test="exam_session != null" >
+        exam_session = #{exam_session,jdbcType=INTEGER},
+      </if>
+      <if test="current_version != null" >
+        current_version = #{current_version,jdbcType=TINYINT},
+      </if>
+      <if test="parent_question_id != null" >
+        parent_question_id = #{parent_question_id,jdbcType=INTEGER},
+      </if>
+      <if test="sequence != null" >
+        sequence = #{sequence,jdbcType=INTEGER},
+      </if>
+      <if test="invalid_flag != null" >
+        invalid_flag = #{invalid_flag,jdbcType=TINYINT},
+      </if>
+      <if test="create_time != null" >
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="delete_flag != null" >
+        delete_flag = #{delete_flag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.po.QuestionMain" >
+    update t_question_main
+    set code = #{code,jdbcType=VARCHAR},
+      source_type = #{source_type,jdbcType=VARCHAR},
+      question_type = #{question_type,jdbcType=VARCHAR},
+      content_type = #{content_type,jdbcType=VARCHAR},
+      question_id = #{question_id,jdbcType=INTEGER},
+      score = #{score,jdbcType=DECIMAL},
+      knowledge_tree_id = #{knowledge_tree_id,jdbcType=INTEGER},
+      main_node_id = #{main_node_id,jdbcType=INTEGER},
+      vice_node_id_1 = #{vice_node_id_1,jdbcType=INTEGER},
+      vice_node_id_2 = #{vice_node_id_2,jdbcType=INTEGER},
+      difficulty_value = #{difficulty_value,jdbcType=TINYINT},
+      exam_province = #{exam_province,jdbcType=INTEGER},
+      exam_session = #{exam_session,jdbcType=INTEGER},
+      current_version = #{current_version,jdbcType=TINYINT},
+      parent_question_id = #{parent_question_id,jdbcType=INTEGER},
+      sequence = #{sequence,jdbcType=INTEGER},
+      invalid_flag = #{invalid_flag,jdbcType=TINYINT},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      delete_flag = #{delete_flag,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!-- 以上为自动生成部分-->
+
+  <select id="findQuestionByPaperId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_question_main
+    where id IN (
+      select question_main_id from t_paper_question_rel where paper_id = (
+        select id from t_paper where id = #{id,jdbcType=INTEGER} and delete_flag = 0) and delete_flag = 0) and delete_flag = 0
+  </select>
+
+
+</mapper>

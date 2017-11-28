@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exercise.mapper.PaperUserRecodeMapper" >
+  <resultMap id="BaseResultMap" type="com.exercise.po.PaperUserRecode" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_id" property="stu_id" jdbcType="INTEGER" />
+    <result column="stu_name" property="stu_name" jdbcType="VARCHAR" />
+    <result column="exam_id" property="exam_id" jdbcType="INTEGER" />
+    <result column="paper_id" property="paper_id" jdbcType="INTEGER" />
+    <result column="paper_id_source" property="paper_id_source" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="answer_paper_time" property="answer_paper_time" jdbcType="INTEGER" />
+    <result column="paper_type" property="paper_type" jdbcType="VARCHAR" />
+    <result column="start_time" property="start_time" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="end_time" jdbcType="TIMESTAMP" />
+    <result column="question_amount" property="question_amount" jdbcType="TINYINT" />
+    <result column="actual_question_amount" property="actual_question_amount" jdbcType="TINYINT" />
+    <result column="actual_correct_amount" property="actual_correct_amount" jdbcType="TINYINT" />
+    <result column="total_score" property="total_score" jdbcType="REAL" />
+    <result column="status_code" property="status_code" jdbcType="VARCHAR" />
+    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="delete_flag" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stu_id, stu_name, exam_id, paper_id, paper_id_source, source, answer_paper_time, 
+    paper_type, start_time, end_time, question_amount, actual_question_amount, actual_correct_amount, 
+    total_score, status_code, create_time, update_time, operator, delete_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ent_paper_user_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ent_paper_user_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.po.PaperUserRecode" >
+    insert into ent_paper_user_record (id, stu_id, stu_name, 
+      exam_id, paper_id, paper_id_source, 
+      source, answer_paper_time, paper_type, 
+      start_time, end_time, question_amount, 
+      actual_question_amount, actual_correct_amount, 
+      total_score, status_code, create_time, 
+      update_time, operator, delete_flag
+      )
+    values (#{id,jdbcType=INTEGER}, #{stu_id,jdbcType=INTEGER}, #{stu_name,jdbcType=VARCHAR}, 
+      #{exam_id,jdbcType=INTEGER}, #{paper_id,jdbcType=INTEGER}, #{paper_id_source,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{answer_paper_time,jdbcType=INTEGER}, #{paper_type,jdbcType=VARCHAR}, 
+      #{start_time,jdbcType=TIMESTAMP}, #{end_time,jdbcType=TIMESTAMP}, #{question_amount,jdbcType=TINYINT}, 
+      #{actual_question_amount,jdbcType=TINYINT}, #{actual_correct_amount,jdbcType=TINYINT}, 
+      #{total_score,jdbcType=REAL}, #{status_code,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{update_time,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, #{delete_flag,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.exercise.po.PaperUserRecode" >
+    insert into ent_paper_user_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stu_id != null" >
+        stu_id,
+      </if>
+      <if test="stu_name != null" >
+        stu_name,
+      </if>
+      <if test="exam_id != null" >
+        exam_id,
+      </if>
+      <if test="paper_id != null" >
+        paper_id,
+      </if>
+      <if test="paper_id_source != null" >
+        paper_id_source,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="answer_paper_time != null" >
+        answer_paper_time,
+      </if>
+      <if test="paper_type != null" >
+        paper_type,
+      </if>
+      <if test="start_time != null" >
+        start_time,
+      </if>
+      <if test="end_time != null" >
+        end_time,
+      </if>
+      <if test="question_amount != null" >
+        question_amount,
+      </if>
+      <if test="actual_question_amount != null" >
+        actual_question_amount,
+      </if>
+      <if test="actual_correct_amount != null" >
+        actual_correct_amount,
+      </if>
+      <if test="total_score != null" >
+        total_score,
+      </if>
+      <if test="status_code != null" >
+        status_code,
+      </if>
+      <if test="create_time != null" >
+        create_time,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="delete_flag != null" >
+        delete_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stu_id != null" >
+        #{stu_id,jdbcType=INTEGER},
+      </if>
+      <if test="stu_name != null" >
+        #{stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="exam_id != null" >
+        #{exam_id,jdbcType=INTEGER},
+      </if>
+      <if test="paper_id != null" >
+        #{paper_id,jdbcType=INTEGER},
+      </if>
+      <if test="paper_id_source != null" >
+        #{paper_id_source,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="answer_paper_time != null" >
+        #{answer_paper_time,jdbcType=INTEGER},
+      </if>
+      <if test="paper_type != null" >
+        #{paper_type,jdbcType=VARCHAR},
+      </if>
+      <if test="start_time != null" >
+        #{start_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_time != null" >
+        #{end_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="question_amount != null" >
+        #{question_amount,jdbcType=TINYINT},
+      </if>
+      <if test="actual_question_amount != null" >
+        #{actual_question_amount,jdbcType=TINYINT},
+      </if>
+      <if test="actual_correct_amount != null" >
+        #{actual_correct_amount,jdbcType=TINYINT},
+      </if>
+      <if test="total_score != null" >
+        #{total_score,jdbcType=REAL},
+      </if>
+      <if test="status_code != null" >
+        #{status_code,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null" >
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="delete_flag != null" >
+        #{delete_flag,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.exercise.po.PaperUserRecode" >
+    update ent_paper_user_record
+    <set >
+      <if test="stu_id != null" >
+        stu_id = #{stu_id,jdbcType=INTEGER},
+      </if>
+      <if test="stu_name != null" >
+        stu_name = #{stu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="exam_id != null" >
+        exam_id = #{exam_id,jdbcType=INTEGER},
+      </if>
+      <if test="paper_id != null" >
+        paper_id = #{paper_id,jdbcType=INTEGER},
+      </if>
+      <if test="paper_id_source != null" >
+        paper_id_source = #{paper_id_source,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="answer_paper_time != null" >
+        answer_paper_time = #{answer_paper_time,jdbcType=INTEGER},
+      </if>
+      <if test="paper_type != null" >
+        paper_type = #{paper_type,jdbcType=VARCHAR},
+      </if>
+      <if test="start_time != null" >
+        start_time = #{start_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_time != null" >
+        end_time = #{end_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="question_amount != null" >
+        question_amount = #{question_amount,jdbcType=TINYINT},
+      </if>
+      <if test="actual_question_amount != null" >
+        actual_question_amount = #{actual_question_amount,jdbcType=TINYINT},
+      </if>
+      <if test="actual_correct_amount != null" >
+        actual_correct_amount = #{actual_correct_amount,jdbcType=TINYINT},
+      </if>
+      <if test="total_score != null" >
+        total_score = #{total_score,jdbcType=REAL},
+      </if>
+      <if test="status_code != null" >
+        status_code = #{status_code,jdbcType=VARCHAR},
+      </if>
+      <if test="create_time != null" >
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="delete_flag != null" >
+        delete_flag = #{delete_flag,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.po.PaperUserRecode" >
+    update ent_paper_user_record
+    set stu_id = #{stu_id,jdbcType=INTEGER},
+      stu_name = #{stu_name,jdbcType=VARCHAR},
+      exam_id = #{exam_id,jdbcType=INTEGER},
+      paper_id = #{paper_id,jdbcType=INTEGER},
+      paper_id_source = #{paper_id_source,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      answer_paper_time = #{answer_paper_time,jdbcType=INTEGER},
+      paper_type = #{paper_type,jdbcType=VARCHAR},
+      start_time = #{start_time,jdbcType=TIMESTAMP},
+      end_time = #{end_time,jdbcType=TIMESTAMP},
+      question_amount = #{question_amount,jdbcType=TINYINT},
+      actual_question_amount = #{actual_question_amount,jdbcType=TINYINT},
+      actual_correct_amount = #{actual_correct_amount,jdbcType=TINYINT},
+      total_score = #{total_score,jdbcType=REAL},
+      status_code = #{status_code,jdbcType=VARCHAR},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      delete_flag = #{delete_flag,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

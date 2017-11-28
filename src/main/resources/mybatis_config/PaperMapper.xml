@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exercise.mapper.PaperMapper">
+    <resultMap id="BaseResultMap" type="com.exercise.po.Paper">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="subject_id" property="subject_id" jdbcType="INTEGER"/>
+        <result column="knowledge_tree_id" property="knowledge_tree_id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="invalid_flag" property="invalid_flag" jdbcType="TINYINT"/>
+        <result column="question_amount" property="question_amount" jdbcType="INTEGER"/>
+        <result column="total_score" property="total_score" jdbcType="DECIMAL"/>
+        <result column="video_url" property="video_url" jdbcType="VARCHAR"/>
+        <result column="current_version" property="current_version" jdbcType="TINYINT"/>
+        <result column="source" property="source" jdbcType="VARCHAR"/>
+        <result column="exam_province" property="exam_province" jdbcType="INTEGER"/>
+        <result column="exam_session" property="exam_session" jdbcType="INTEGER"/>
+        <result column="avg_difficulty_value" property="avg_difficulty_value" jdbcType="DECIMAL"/>
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP"/>
+        <result column="creator" property="creator" jdbcType="VARCHAR"/>
+        <result column="update_time" property="update_time" jdbcType="TIMESTAMP"/>
+        <result column="operator" property="operator" jdbcType="VARCHAR"/>
+        <result column="delete_flag" property="delete_flag" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, code, subject_id, knowledge_tree_id, name, type, invalid_flag, question_amount, 
+    total_score, video_url, current_version, source, exam_province, exam_session, avg_difficulty_value, 
+    create_time, creator, update_time, operator, delete_flag
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from t_paper
+        where id = #{id,jdbcType=INTEGER} and delete_flag = 0;
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_paper
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.exercise.po.Paper">
+    insert into t_paper (id, code, subject_id, 
+      knowledge_tree_id, name, type, 
+      invalid_flag, question_amount, total_score, 
+      video_url, current_version, source, 
+      exam_province, exam_session, avg_difficulty_value, 
+      create_time, creator, update_time, 
+      operator, delete_flag)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{subject_id,jdbcType=INTEGER}, 
+      #{knowledge_tree_id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{invalid_flag,jdbcType=TINYINT}, #{question_amount,jdbcType=INTEGER}, #{total_score,jdbcType=DECIMAL}, 
+      #{video_url,jdbcType=VARCHAR}, #{current_version,jdbcType=TINYINT}, #{source,jdbcType=VARCHAR}, 
+      #{exam_province,jdbcType=INTEGER}, #{exam_session,jdbcType=INTEGER}, #{avg_difficulty_value,jdbcType=DECIMAL}, 
+      #{create_time,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{update_time,jdbcType=TIMESTAMP}, 
+      #{operator,jdbcType=VARCHAR}, #{delete_flag,jdbcType=TINYINT})
+  </insert>
+    <insert id="insertSelective" parameterType="com.exercise.po.Paper">
+        insert into t_paper
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="subject_id != null">
+                subject_id,
+            </if>
+            <if test="knowledge_tree_id != null">
+                knowledge_tree_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="invalid_flag != null">
+                invalid_flag,
+            </if>
+            <if test="question_amount != null">
+                question_amount,
+            </if>
+            <if test="total_score != null">
+                total_score,
+            </if>
+            <if test="video_url != null">
+                video_url,
+            </if>
+            <if test="current_version != null">
+                current_version,
+            </if>
+            <if test="source != null">
+                source,
+            </if>
+            <if test="exam_province != null">
+                exam_province,
+            </if>
+            <if test="exam_session != null">
+                exam_session,
+            </if>
+            <if test="avg_difficulty_value != null">
+                avg_difficulty_value,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="update_time != null">
+                update_time,
+            </if>
+            <if test="operator != null">
+                operator,
+            </if>
+            <if test="delete_flag != null">
+                delete_flag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="subject_id != null">
+                #{subject_id,jdbcType=INTEGER},
+            </if>
+            <if test="knowledge_tree_id != null">
+                #{knowledge_tree_id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="invalid_flag != null">
+                #{invalid_flag,jdbcType=TINYINT},
+            </if>
+            <if test="question_amount != null">
+                #{question_amount,jdbcType=INTEGER},
+            </if>
+            <if test="total_score != null">
+                #{total_score,jdbcType=DECIMAL},
+            </if>
+            <if test="video_url != null">
+                #{video_url,jdbcType=VARCHAR},
+            </if>
+            <if test="current_version != null">
+                #{current_version,jdbcType=TINYINT},
+            </if>
+            <if test="source != null">
+                #{source,jdbcType=VARCHAR},
+            </if>
+            <if test="exam_province != null">
+                #{exam_province,jdbcType=INTEGER},
+            </if>
+            <if test="exam_session != null">
+                #{exam_session,jdbcType=INTEGER},
+            </if>
+            <if test="avg_difficulty_value != null">
+                #{avg_difficulty_value,jdbcType=DECIMAL},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="update_time != null">
+                #{update_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operator != null">
+                #{operator,jdbcType=VARCHAR},
+            </if>
+            <if test="delete_flag != null">
+                #{delete_flag,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.exercise.po.Paper">
+        update t_paper
+        <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="subject_id != null">
+                subject_id = #{subject_id,jdbcType=INTEGER},
+            </if>
+            <if test="knowledge_tree_id != null">
+                knowledge_tree_id = #{knowledge_tree_id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="invalid_flag != null">
+                invalid_flag = #{invalid_flag,jdbcType=TINYINT},
+            </if>
+            <if test="question_amount != null">
+                question_amount = #{question_amount,jdbcType=INTEGER},
+            </if>
+            <if test="total_score != null">
+                total_score = #{total_score,jdbcType=DECIMAL},
+            </if>
+            <if test="video_url != null">
+                video_url = #{video_url,jdbcType=VARCHAR},
+            </if>
+            <if test="current_version != null">
+                current_version = #{current_version,jdbcType=TINYINT},
+            </if>
+            <if test="source != null">
+                source = #{source,jdbcType=VARCHAR},
+            </if>
+            <if test="exam_province != null">
+                exam_province = #{exam_province,jdbcType=INTEGER},
+            </if>
+            <if test="exam_session != null">
+                exam_session = #{exam_session,jdbcType=INTEGER},
+            </if>
+            <if test="avg_difficulty_value != null">
+                avg_difficulty_value = #{avg_difficulty_value,jdbcType=DECIMAL},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="update_time != null">
+                update_time = #{update_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operator != null">
+                operator = #{operator,jdbcType=VARCHAR},
+            </if>
+            <if test="delete_flag != null">
+                delete_flag = #{delete_flag,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.exercise.po.Paper">
+    update t_paper
+    set code = #{code,jdbcType=VARCHAR},
+      subject_id = #{subject_id,jdbcType=INTEGER},
+      knowledge_tree_id = #{knowledge_tree_id,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      invalid_flag = #{invalid_flag,jdbcType=TINYINT},
+      question_amount = #{question_amount,jdbcType=INTEGER},
+      total_score = #{total_score,jdbcType=DECIMAL},
+      video_url = #{video_url,jdbcType=VARCHAR},
+      current_version = #{current_version,jdbcType=TINYINT},
+      source = #{source,jdbcType=VARCHAR},
+      exam_province = #{exam_province,jdbcType=INTEGER},
+      exam_session = #{exam_session,jdbcType=INTEGER},
+      avg_difficulty_value = #{avg_difficulty_value,jdbcType=DECIMAL},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      delete_flag = #{delete_flag,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <!--以上为自动生成部分-->
+
+    <select id="getRelationIdByPaperId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    select
+      id
+    from t_paper_question_rel
+    where paper_id = #{id,jdbcType=INTEGER} and delete_flag = 0;
+  </select>
+
+    <select id="getRelationIdByQuestionMainId" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select
+        id
+        from t_paper_question_rel
+        where question_main_id = #{question_main_id,jdbcType=INTEGER} and paper_id = #{paper_id,jdbcType=INTEGER} and delete_flag = 0;
+    </select>
+</mapper>

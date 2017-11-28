@@ -1,0 +1,118 @@
+.root {
+    composes: w_100 h_100 psr from './common.less';
+    background: url(../../images/login-bg@2x.png) no-repeat center;
+    background-size: 750px 1334px;
+}
+
+.root--hidden {
+    composes: dn from './common.less';
+}
+
+.form-container {
+    composes: psa w_100 from './common.less';
+    margin: 556px auto 0 auto;
+    height: 216px;
+    box-sizing: border-box;
+    form {
+      padding: 0 106px;
+    }
+}
+
+.input-container {
+    width: 540px;
+    height: 62px;
+    border-bottom: 1px solid white;
+    line-height: 62px;
+    margin-bottom: 46px;
+    position: relative;
+}
+
+.input {
+    composes: w_100 h_100 from './common.less';
+    background-color:transparent;
+    border: 0px;
+    color: #ddebff;
+    font-size: 30px;
+}
+
+.input-username {
+    composes: input;
+    width: 226px;
+}
+
+.input-password {
+    composes: input;
+    width: 476px;
+}
+
+.mail-suffix {
+    composes: fr h_100 from './common.less';
+    font-size: 32px;
+    color: #8a93b7;
+}
+
+
+.icon-username {
+    composes: h_100 fl from './common.less';
+    width: 42px;
+    background: url(../../images/mail@2x.png) no-repeat center;
+    display: inline-block;
+    background-size: 100% auto;
+    margin-right: 22px
+}
+
+.icon-password {
+    composes: h_100 fl from './common.less';
+    width: 42px;
+    background: url(../../images/password@2x.png) no-repeat center;
+    display: inline-block;
+    background-size: 100% auto;
+    margin-right: 22px;
+}
+
+.icon-delete {
+    composes: h_100 from './common.less';
+    width: 36px;
+    background: url(../../images/delete@2x.png) no-repeat center;
+    background-size: 100% auto;
+    position: absolute;
+    left: 258px;
+}
+
+.icon-delete--none {
+    composes: icon-delete;
+    display: none;
+}
+
+.icon-delete--show {
+    composes: icon-delete;
+    display: inline-block;
+}
+
+.icon-password-delete--show {
+    composes: icon-delete;
+    left: auto;
+    right: 0px;
+    display: inline-block;
+}
+
+.button {
+    width: 540px;
+    text-align: center;
+    color: #FFFFFF;
+    height: 90px;
+    font-size: 38px;
+    line-height: 90px;
+    border-radius: 40px;
+    margin-top: 98px;
+}
+
+.button-submit--disabled {
+    composes: button;
+    background: #96d9ff;
+}
+
+.button-submit--actived {
+    composes: button;
+    background: #33b5ff;
+}

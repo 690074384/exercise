@@ -1,0 +1,88 @@
+<div class="wrapper">
+	<div class="queryBox">
+		<div class="h40 lh40 heng mt10">
+			<label class="left">会议室</label>
+			<span class="right">
+				<span class="p010">{{roomName}}</span>
+			</span>
+		</div>
+		<div class="h40 lh40 heng">
+			<label class="left">人数</label>
+			<span class="right">
+				<span class="p010">可容纳{{capacity}}人</span>
+			</span>
+		</div>
+		<div class="h40 lh40 heng">
+			<label class="left">投影仪</label>
+			<span class="right">
+				<span class="p010">{{hasProjectorStr}}</span>
+			</span>
+		</div>
+		<div class="h40 lh40 heng">
+			<label class="left">日期</label>
+			<span class="right">
+				<div class="bf3f5f7">
+					<input type="text" id="date" class="acc-input date_input" placeholder="请输入日期" />
+				</div>
+			</span>
+		</div>
+		<!-- <div class="lh40 heng">
+			<label class="left">已被预订</label>
+			<span class="right" id="reserved">
+				
+			</span>
+		</div>
+		<div class="lh40 heng">
+			<label class="left">未被预订</label>
+			<span class="right" id="unReserved">
+				
+			</span>
+		</div> -->
+	</div>
+</div>
+<div class="wrapper mt10">
+	<div class="queryBox">
+			<p style="height: 40px; line-height: 20px; font-size: 12px;" class="clearfix">
+				<span class="red-grid"></span>已预订 
+        <span class="green-grid ml10"></span>未预订
+        <span style="color: #2db7f5; margin-left: 10px;">(每个格子为半个小时)</span>
+      </p>
+			<ul class="timeLine fl">
+				<li>
+					<div class="hold-padding"></div>
+					<div class="item-content">09:00<br/>-<br/>11:00</div>
+				</li>
+				<li>
+					<div class="hold-padding"></div>
+					<div class="item-content">11:00<br/>-<br/>13:00</div>
+				</li>
+				<li>
+					<div class="hold-padding"></div>
+					<div class="item-content">13:00<br/>-<br/>15:00</div>
+				</li>
+				<li>
+					<div class="hold-padding"></div>
+					<div class="item-content">15:00<br/>-<br/>17:00</div>
+				</li>
+				<li>
+					<div class="hold-padding"></div>
+					<div class="item-content">17:00<br/>-<br/>19:00</div>
+				</li>
+				<li>
+					<div class="hold-padding"></div>
+					<div class="item-content">19:00<br/>-<br/>21:00</div>
+				</li>
+			</ul>
+			<ul class="timeGrid clearfix fl">
+				<li>
+					
+				</li>
+			</ul>
+		</div>
+	</div>	
+
+<div class="wrapper">
+	<div class="queryBox">
+	<a href="javascript:;" id="goToBook" class="btn mt10 btn-active">去预订</a>
+	</div>
+</div>

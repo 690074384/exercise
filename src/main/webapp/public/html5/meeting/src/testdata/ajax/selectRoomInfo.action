@@ -1,0 +1,1214 @@
+{
+    "statusCode": 0,
+    "data": {
+        "dataList": {
+            "total": 290,
+            "pageSize": 10,
+            "pageNo": 1,
+            "rows": [
+                {
+                    "roomId": 102,
+                    "roomNum": "1A",
+                    "building": "4",
+                    "floor": "1",
+                    "roomName": "4-1-1A",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "beginTime": "09:00",
+                            "used": "0",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "beginTime": "12:00",
+                            "used": "0",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "beginTime": "13:00",
+                            "used": "0",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "beginTime": "14:00",
+                            "used": "0",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "beginTime": "15:00",
+                            "used": "0",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "beginTime": "16:00",
+                            "used": "0",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "beginTime": "17:00",
+                            "used": "0",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "beginTime": "18:00",
+                            "used": "0",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "beginTime": "19:00",
+                            "used": "0",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "beginTime": "20:00",
+                            "used": "0",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 103,
+                    "roomNum": "1B",
+                    "building": "4",
+                    "floor": "1",
+                    "roomName": "4-1-1B",
+                    "capacity": 10,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "beginTime": "09:00",
+                            "used": "0",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "beginTime": "12:00",
+                            "used": "0",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "beginTime": "13:00",
+                            "used": "0",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "beginTime": "14:00",
+                            "used": "0",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "beginTime": "15:00",
+                            "used": "0",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "beginTime": "16:00",
+                            "used": "0",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "beginTime": "17:00",
+                            "used": "0",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "beginTime": "18:00",
+                            "used": "0",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "beginTime": "19:00",
+                            "used": "0",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "beginTime": "20:00",
+                            "used": "0",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 104,
+                    "roomNum": "2A",
+                    "building": "4",
+                    "floor": "2",
+                    "roomName": "4-2-2A",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18771568441",
+                                "revUserName": "李小瑞",
+                                "revId": 3643,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "beginTime": "12:00",
+                            "used": "0",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18771568441",
+                                "revUserName": "李小瑞",
+                                "revId": 3644,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3659,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "14:00",
+                            "used": "1",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3659,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3659,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3659,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18771568441",
+                                "revUserName": "李小瑞",
+                                "revId": 3645,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18771568441",
+                                "revUserName": "李小瑞",
+                                "revId": 3645,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18771568441",
+                                "revUserName": "李小瑞",
+                                "revId": 3645,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "20:00",
+                            "used": "1",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 105,
+                    "roomNum": "2C",
+                    "building": "4",
+                    "floor": "2",
+                    "roomName": "4-2-2C",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "郭文强",
+                                "revId": 3636,
+                                "revSubject": "早会"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "刘平",
+                                "revId": 3648,
+                                "revSubject": "刘平"
+                            },
+                            "beginTime": "12:00",
+                            "used": "1",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "刘平",
+                                "revId": 3648,
+                                "revSubject": "刘平"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "beginTime": "14:00",
+                            "used": "0",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "刘平",
+                                "revId": 3649,
+                                "revSubject": "刘平"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "刘平",
+                                "revId": 3649,
+                                "revSubject": "刘平"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "刘平",
+                                "revId": 3649,
+                                "revSubject": "刘平"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "魏蛟蛟",
+                                "revId": 3698,
+                                "revSubject": "晚"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "魏蛟蛟",
+                                "revId": 3698,
+                                "revSubject": "晚"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "beginTime": "20:00",
+                            "used": "0",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 106,
+                    "roomNum": "2D",
+                    "building": "4",
+                    "floor": "2",
+                    "roomName": "4-2-2D(不是研发2D)",
+                    "capacity": 10,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "beginTime": "09:00",
+                            "used": "0",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "beginTime": "12:00",
+                            "used": "0",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "beginTime": "13:00",
+                            "used": "0",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "beginTime": "14:00",
+                            "used": "0",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13269359868",
+                                "revUserName": "孙晨",
+                                "revId": 3675,
+                                "revSubject": "主管会"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13269359868",
+                                "revUserName": "孙晨",
+                                "revId": 3675,
+                                "revSubject": "主管会"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13810481464",
+                                "revUserName": "王宁",
+                                "revId": 3655,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13810481464",
+                                "revUserName": "王宁",
+                                "revId": 3655,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13810481464",
+                                "revUserName": "王宁",
+                                "revId": 3655,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13810481464",
+                                "revUserName": "王宁",
+                                "revId": 3655,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "20:00",
+                            "used": "1",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 107,
+                    "roomNum": "2E",
+                    "building": "4",
+                    "floor": "2",
+                    "roomName": "4-2-2E",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15117936992",
+                                "revUserName": "李德春",
+                                "revId": 3633,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "beginTime": "12:00",
+                            "used": "0",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18771568441",
+                                "revUserName": "李小瑞",
+                                "revId": 3642,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "beginTime": "14:00",
+                            "used": "0",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13269359868",
+                                "revUserName": "孙晨",
+                                "revId": 3676,
+                                "revSubject": "主管会"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "13269359868",
+                                "revUserName": "孙晨",
+                                "revId": 3676,
+                                "revSubject": "主管会"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15117936992",
+                                "revUserName": "李德春",
+                                "revId": 3634,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15117936992",
+                                "revUserName": "李德春",
+                                "revId": 3634,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15117936992",
+                                "revUserName": "李德春",
+                                "revId": 3634,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "beginTime": "20:00",
+                            "used": "0",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 108,
+                    "roomNum": "3A",
+                    "building": "4",
+                    "floor": "3",
+                    "roomName": "4-3-3A",
+                    "capacity": 10,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "+86-18511708637",
+                                "revUserName": "董英岐",
+                                "revId": 3639,
+                                "revSubject": "早会"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "beginTime": "11:00",
+                            "used": "0",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "+86-18511708637",
+                                "revUserName": "董英岐",
+                                "revId": 3641,
+                                "revSubject": "午会"
+                            },
+                            "beginTime": "12:00",
+                            "used": "1",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "+86-18511708637",
+                                "revUserName": "董英岐",
+                                "revId": 3641,
+                                "revSubject": "午会"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3660,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "14:00",
+                            "used": "1",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3660,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3660,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "何建磊",
+                                "revId": 3660,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "张雪松",
+                                "revId": 3699,
+                                "revSubject": "会"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "张雪松",
+                                "revId": 3699,
+                                "revSubject": "会"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "张雪松",
+                                "revId": 3699,
+                                "revSubject": "会"
+                            },
+                            "beginTime": "20:00",
+                            "used": "1",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 109,
+                    "roomNum": "3B",
+                    "building": "4",
+                    "floor": "3",
+                    "roomName": "4-3-3B",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3629,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3629,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "10:00",
+                            "used": "1",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3629,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "11:00",
+                            "used": "1",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3629,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "12:00",
+                            "used": "1",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3630,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3630,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "14:00",
+                            "used": "1",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3630,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3630,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3654,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3654,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3654,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3654,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "20:00",
+                            "used": "1",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 110,
+                    "roomNum": "3C",
+                    "building": "4",
+                    "floor": "3",
+                    "roomName": "4-3-3C",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "张雪松",
+                                "revId": 3613,
+                                "revSubject": "会"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "null",
+                                "revUserName": "张雪松",
+                                "revId": 3613,
+                                "revSubject": "会"
+                            },
+                            "beginTime": "10:00",
+                            "used": "1",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3625,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "11:00",
+                            "used": "1",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3625,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "12:00",
+                            "used": "1",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3627,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3627,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "14:00",
+                            "used": "1",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3627,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3627,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3626,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3626,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3626,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "15739389092",
+                                "revUserName": "张文星",
+                                "revId": 3626,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "20:00",
+                            "used": "1",
+                            "endTime": "21:00"
+                        }
+                    ]
+                },
+                {
+                    "roomId": 111,
+                    "roomNum": "3D",
+                    "building": "4",
+                    "floor": "3",
+                    "roomName": "4-3-3D",
+                    "capacity": 15,
+                    "hasProjector": 1,
+                    "createTime": null,
+                    "updateTime": null,
+                    "deleteFlag": null,
+                    "reserveList": null,
+                    "revseredList": [
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18910058613",
+                                "revUserName": "张云晨",
+                                "revId": 3637,
+                                "revSubject": "开会"
+                            },
+                            "beginTime": "09:00",
+                            "used": "1",
+                            "endTime": "10:00"
+                        },
+                        {
+                            "beginTime": "10:00",
+                            "used": "0",
+                            "endTime": "11:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3651,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "11:00",
+                            "used": "1",
+                            "endTime": "12:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3651,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "12:00",
+                            "used": "1",
+                            "endTime": "13:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "18910058613",
+                                "revUserName": "张云晨",
+                                "revId": 3638,
+                                "revSubject": "开会"
+                            },
+                            "beginTime": "13:00",
+                            "used": "1",
+                            "endTime": "14:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3652,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "14:00",
+                            "used": "1",
+                            "endTime": "15:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3652,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "15:00",
+                            "used": "1",
+                            "endTime": "16:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3652,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "16:00",
+                            "used": "1",
+                            "endTime": "17:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3652,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "17:00",
+                            "used": "1",
+                            "endTime": "18:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "+86-18511708637",
+                                "revUserName": "董英岐",
+                                "revId": 3640,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "18:00",
+                            "used": "1",
+                            "endTime": "19:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3653,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "19:00",
+                            "used": "1",
+                            "endTime": "20:00"
+                        },
+                        {
+                            "reserveInfo": {
+                                "revUserPhone": "110",
+                                "revUserName": "李慧",
+                                "revId": 3653,
+                                "revSubject": "培训"
+                            },
+                            "beginTime": "20:00",
+                            "used": "1",
+                            "endTime": "21:00"
+                        }
+                    ]
+                }
+            ]
+        },
+        "date": "2017-04-17"
+    },
+    "statusDesc": "ok"
+}

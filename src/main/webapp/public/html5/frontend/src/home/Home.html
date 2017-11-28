@@ -1,0 +1,117 @@
+
+<div id="bookMeetContainer" name="bookMeetContainer">
+	<div class="wrapper">
+	<div class="queryBox">
+		<div class="h30 lh30 heng mt10">
+			<label class="left">日期</label>
+			<span class="right">
+				<div class="bf3f5f7">
+				<input type="text" id="date" class="acc-input date_input" placeholder="请选择预定日期" value="" />
+				</div>
+			</span>
+		</div>
+		<div class="h30 lh30 heng mt10">
+			<label class="left">开始时间</label>
+			<span class="right">
+				<div class="bf3f5f7">
+					<input type="text" id="start" class="acc-input date_input" placeholder="请选择开始时间" value="" />
+				</div>
+			</span>
+		</div>
+		<div class="h30 lh30 heng mt10">
+			<label class="left">结束时间</label>
+			<span class="right">
+			<div class="bf3f5f7">
+				<input type="text" id="end" class="acc-input date_input" placeholder="请选择结束时间" value="" />
+				</div>
+			</span>
+		</div>
+		<div class="h30 lh30 heng mt10">
+			<label class="left">人数</label>
+			<span class="right">
+				<div class="ant-radio-group" id="num">
+					<label class="ant-radio-button-wrapper">
+						<span class="ant-radio-button">
+							<span class="ant-radio-button-inner"></span>
+							<input type="radio" class="ant-radio-button-input" name="num" value="1-8">
+						</span>
+						<span>8人以下</span>
+					</label><!--
+			 --><label class="ant-radio-button-wrapper">
+						<span class="ant-radio-button">
+							<span class="ant-radio-button-inner"></span>
+							<input type="radio" class="ant-radio-button-input" name="num" value="8-15">
+						</span>
+						<span>8-15人</span>
+					</label><!--
+			 --><label class="ant-radio-button-wrapper">
+						<span class="ant-radio-button">
+							<span class="ant-radio-button-inner"></span>
+							<input type="radio" class="ant-radio-button-input" name="num" value="15-100">
+						</span>
+						<span>15人以上</span>
+					</label>
+				</div>
+			</span>
+		</div>
+		<div class="h30 lh30 heng mt10">
+			<label class="left">投影仪</label>
+			<span class="right">
+				<div class="ant-radio-group" id="hasProjector">
+					<label class="ant-radio-button-wrapper">
+						<span class="ant-radio-button">
+							<span class="ant-radio-button-inner"></span>
+							<input type="radio" class="ant-radio-button-input" name="hasProjector" value="1">
+						</span>
+						<span>有</span>
+					</label><!--
+			 --><label class="ant-radio-button-wrapper">
+						<span class="ant-radio-button">
+							<span class="ant-radio-button-inner"></span>
+							<input type="radio" class="ant-radio-button-input" name="hasProjector" value="0">
+						</span>
+						<span>没有</span>
+					</label>
+				</div>
+			</span>
+		</div>
+		<!-- <div class="h30 lh30 heng mt10">
+			<label class="left">楼/层/号：</label>
+			<span class="right">
+				<select style="width: 30%; background-color: #fff">
+					<option>26</option>
+					<option>27</option>
+				</select>
+				<select style="width: 30%; background-color: #fff">
+					<option>1</option>
+					<option>2</option>
+				</select>
+				<select style="width: 30%; background-color: #fff">
+					<option>2C</option>
+					<option>2D</option>
+				</select>
+			</span>
+		</div> -->
+		<!-- <div class="h30 lh30 heng mt10">
+			<label class="left">人数：</label>
+			<span class="right">
+				<input type="num" id="num" class="acc-input" placeholder="可预订人数不少于" />
+			</span>
+		</div>
+		<div class="h30 lh30 heng mt10">
+			<label class="left">投影仪：</label>
+			<span class="right">
+				<label class="mr10"><input type="radio" name="isTouying" value="1" />有</label>
+				<label><input type="radio" name="isTouying" value="2" />没有</label>
+			</span>
+		</div> -->
+		<a href="javascript:;" class="btn mt10 btn-active" id="query">查询</a>
+	</div>
+	</div>
+	<div class="listContent mt10">
+		<ul id="dataList">
+			
+		</ul>
+	</div>
+</div>
+

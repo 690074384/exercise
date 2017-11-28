@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.exercise.mapper.ChoiceOptionMapper" >
+  <resultMap id="BaseResultMap" type="com.exercise.po.ChoiceOption" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="question_id" property="question_id" jdbcType="INTEGER" />
+    <result column="sequence" property="sequence" jdbcType="TINYINT" />
+    <result column="option_title" property="option_title" jdbcType="VARCHAR" />
+    <result column="is_correct" property="is_correct" jdbcType="TINYINT" />
+    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="delete_flag" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.exercise.po.ChoiceOption" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, question_id, sequence, option_title, is_correct, create_time, creator, update_time, 
+    operator, delete_flag
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_question_content_choice_option
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_question_content_choice_option
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.exercise.po.ChoiceOption" >
+    insert into t_question_content_choice_option (id, question_id, sequence, 
+      option_title, is_correct, create_time, 
+      creator, update_time, operator, 
+      delete_flag, content)
+    values (#{id,jdbcType=INTEGER}, #{question_id,jdbcType=INTEGER}, #{sequence,jdbcType=TINYINT}, 
+      #{option_title,jdbcType=VARCHAR}, #{is_correct,jdbcType=TINYINT}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{update_time,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, 
+      #{delete_flag,jdbcType=TINYINT}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.exercise.po.ChoiceOption" >
+    insert into t_question_content_choice_option
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="question_id != null" >
+        question_id,
+      </if>
+      <if test="sequence != null" >
+        sequence,
+      </if>
+      <if test="option_title != null" >
+        option_title,
+      </if>
+      <if test="is_correct != null" >
+        is_correct,
+      </if>
+      <if test="create_time != null" >
+        create_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="update_time != null" >
+        update_time,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="delete_flag != null" >
+        delete_flag,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="question_id != null" >
+        #{question_id,jdbcType=INTEGER},
+      </if>
+      <if test="sequence != null" >
+        #{sequence,jdbcType=TINYINT},
+      </if>
+      <if test="option_title != null" >
+        #{option_title,jdbcType=VARCHAR},
+      </if>
+      <if test="is_correct != null" >
+        #{is_correct,jdbcType=TINYINT},
+      </if>
+      <if test="create_time != null" >
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="delete_flag != null" >
+        #{delete_flag,jdbcType=TINYINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.exercise.po.ChoiceOption" >
+    update t_question_content_choice_option
+    <set >
+      <if test="question_id != null" >
+        question_id = #{question_id,jdbcType=INTEGER},
+      </if>
+      <if test="sequence != null" >
+        sequence = #{sequence,jdbcType=TINYINT},
+      </if>
+      <if test="option_title != null" >
+        option_title = #{option_title,jdbcType=VARCHAR},
+      </if>
+      <if test="is_correct != null" >
+        is_correct = #{is_correct,jdbcType=TINYINT},
+      </if>
+      <if test="create_time != null" >
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null" >
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="delete_flag != null" >
+        delete_flag = #{delete_flag,jdbcType=TINYINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.exercise.po.ChoiceOption" >
+    update t_question_content_choice_option
+    set question_id = #{question_id,jdbcType=INTEGER},
+      sequence = #{sequence,jdbcType=TINYINT},
+      option_title = #{option_title,jdbcType=VARCHAR},
+      is_correct = #{is_correct,jdbcType=TINYINT},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      delete_flag = #{delete_flag,jdbcType=TINYINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.exercise.po.ChoiceOption" >
+    update t_question_content_choice_option
+    set question_id = #{question_id,jdbcType=INTEGER},
+      sequence = #{sequence,jdbcType=TINYINT},
+      option_title = #{option_title,jdbcType=VARCHAR},
+      is_correct = #{is_correct,jdbcType=TINYINT},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=VARCHAR},
+      delete_flag = #{delete_flag,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--以上为自动生成部分-->
+
+  <select id="selectByQuestionId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_question_content_choice_option
+    where question_id = #{questionId,jdbcType=INTEGER}
+  </select>
+</mapper>
