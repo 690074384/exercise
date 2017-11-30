@@ -3,17 +3,16 @@ package com.exercise.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.exercise.po.*;
+import com.exercise.processor.MissionProcessor;
 import com.exercise.service.*;
+import com.exercise.util.ExceptionUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
 import java.util.*;
-
-import static com.exercise.processor.MissionProcessor.test;
 
 @Controller
 @RequestMapping("mission")
@@ -31,18 +30,6 @@ public class Mission {
     @Resource
     private EntPaperUserRecordService entPaperUserRecordService;
 
-    @Resource
-    private ChoiceService choiceService;
-
-    @Resource
-    private FillBlankService fillBlankService;
-
-    @Resource
-    private EssayService essayService;
-
-    @Resource
-    private ChoiceOptionService choiceOptionService;
-
     @ResponseBody
     @RequestMapping("index")
     public Object getRoomDetail(HttpServletRequest request, HttpServletResponse response) {
@@ -57,6 +44,13 @@ public class Mission {
 
     /**
      * 生成学员答卷记录
+     * <p>
+     * {
+     * "stu_id" : 11111,
+     * "exam_id" : 1,
+     * "paper_id" : 2,
+     * "paper_id_source" : "t_paper"
+     * }
      *
      * @param jsonObject
      * @return
@@ -66,27 +60,26 @@ public class Mission {
     @RequestMapping(value = "createRecord", method = RequestMethod.POST)
     public Object createRecord(@RequestBody JSONObject jsonObject, HttpServletRequest request) throws Exception {
 
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+
         EntPaperUserRecord entPaperUserRecord = new EntPaperUserRecord();
 
+        if (jsonObject.get("stu_id") == null || jsonObject.get("exam_id") == null || jsonObject.get("paper_id_source") == null || jsonObject.getInteger("paper_id") == null)
+            return JSONArray.toJSON(ExceptionUtil.paramException());
 
-        try {
-            entPaperUserRecord.setStu_id(jsonObject.getInteger("stu_id"));
-            //根据用户id从用户表取出用户名
-            entPaperUserRecord.setStu_name("lvpenghui");
+        entPaperUserRecord.setStu_id(jsonObject.getInteger("stu_id"));
+        entPaperUserRecord.setExam_id(jsonObject.getInteger("exam_id"));
+        entPaperUserRecord.setPaper_id(jsonObject.getInteger("paper_id"));
+        entPaperUserRecord.setPaper_id_source(jsonObject.getString("paper_id_source"));
+        //根据用户id从用户表取出用户名
+        entPaperUserRecord.setStu_name("lvpenghui");
+        entPaperUserRecord.setAnswer_paper_time(0);
+        entPaperUserRecord.setStart_time(new Date());
+        entPaperUserRecord.setEnd_time(new Date());
 
-            entPaperUserRecord.setExam_id(jsonObject.getInteger("exam_id"));
-            entPaperUserRecord.setPaper_id(jsonObject.getInteger("paper_id"));
-            entPaperUserRecord.setPaper_id_source(jsonObject.getString("paper_id_source"));
-            entPaperUserRecord.setAnswer_paper_time(jsonObject.getInteger("answer_paper_time"));
-            entPaperUserRecord.setStart_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(jsonObject.getString("start_time")));
-            entPaperUserRecord.setEnd_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(jsonObject.getString("end_time")));
-        } catch (Exception e) {
-            //处理
-        }
-
-        entPaperUserRecord.setActual_question_amount(jsonObject.getByte("actual_question_amount"));
-        entPaperUserRecord.setActual_correct_amount(jsonObject.getByte("actual_correct_amount"));
-        entPaperUserRecord.setStatus_code(jsonObject.getString("status_code"));
+        entPaperUserRecord.setActual_question_amount((byte) 0);
+        entPaperUserRecord.setActual_correct_amount((byte) 0);
+        entPaperUserRecord.setStatus_code("UNCOMPLETE");
 
         //通过试卷id获取到试卷的基本信息
         Paper paper = paperService.getPaper(jsonObject.getInteger("paper_id"));
@@ -102,17 +95,24 @@ public class Mission {
         if (paper.getTotal_score() != null) {
             entPaperUserRecord.setTotal_score(paper.getTotal_score().floatValue());
         }
-        entPaperUserRecord.setOperator("lph");
+        entPaperUserRecord.setOperator("onstart");
 
         entPaperUserRecord.setDelete_flag((byte) 0);
         entPaperUserRecord.setCreate_time(new Date());
         entPaperUserRecord.setUpdate_time(new Date());
 
-        Integer paper_user_record_id = entPaperUserRecordService.insert(entPaperUserRecord);
-        //request.getSession().getAttribute("user");
-        request.setAttribute("paper_user_record_id", paper_user_record_id);
+        try {
+            Integer paper_user_record_id = entPaperUserRecordService.insert(entPaperUserRecord);
+            //request.getSession().getAttribute("user");
+            request.setAttribute("paper_user_record_id", paper_user_record_id);
+        } catch (Exception e) {
+            return JSONArray.toJSON(ExceptionUtil.dbException());
+        }
 
-        return JSONArray.toJSON(entPaperUserRecord);
+        resultMap.put("entPaperUserRecord", entPaperUserRecord);
+        resultMap.put("msg", "插入成功！");
+        resultMap.put("code", "1");
+        return JSONArray.toJSON(resultMap);
     }
 
 
@@ -120,108 +120,60 @@ public class Mission {
      * 根据试卷ID获取所有问题 mission2
      *
      * @param
-     * @return
+     * @return {
+     * "id" : 19
+     * }
      */
     @ResponseBody
     @RequestMapping("findQuestion")
     public Object findQuestionById(@RequestBody JSONObject jsonObject) {
-        Map map = new HashMap();
-        List<QuestionMain> questionMainList = questionMainService.findQuestionByPaperId((Integer) jsonObject.get("id"));
-        List<QuestionMain> fatherQuestionMainList = new ArrayList<QuestionMain>();
-
-        for (int i = 0; i < questionMainList.size(); i++) {
-            if (questionMainList.get(i).getParent_question_id() != null && questionMainList.get(i).getParent_question_id() == 0) {
-                fatherQuestionMainList.add(questionMainList.get(i));
-            }
-        }
-
-        List<Choice> choiceList;
-        List<FillBlank> fillBlankList;
-        List<Essay> essayList;
-        Paper paper = paperService.getPaper((Integer) jsonObject.get("id"));
-        map.put("paper", paper);
-        Choice choice;
-        List<ChoiceOption> choiceOption;
-        Essay essay;
-        FillBlank fillBlank;
-
-        int choiceNum = 1;
-        int essayNum = 1;
-        int blankNum = 1;
-        for (int i = 0; i < fatherQuestionMainList.size(); i++) {
-
-            if (fatherQuestionMainList.get(i).getContent_type() != null && fatherQuestionMainList.get(i).getContent_type().equals("CHOICE")) {
-
-                choice = choiceService.getById(fatherQuestionMainList.get(i).getQuestion_id());
-                choiceOption = choiceOptionService.getById(fatherQuestionMainList.get(i).getQuestion_id());
-                choice.setChoiceOptionMap(choiceOption);
-
-                map.put("CHOICE--" + choiceNum++, choice);
-            } else if (fatherQuestionMainList.get(i).getContent_type() != null && fatherQuestionMainList.get(i).getContent_type().equals("BLANK")) {
-                fillBlank = fillBlankService.getById(fatherQuestionMainList.get(i).getQuestion_id());
-
-                map.put("BLANK--" + essayNum++, fillBlank);
-            } else if (fatherQuestionMainList.get(i).getContent_type() != null && fatherQuestionMainList.get(i).getContent_type().equals("ESSAY")) {
-                essay = essayService.getById(fatherQuestionMainList.get(i).getQuestion_id());
-
-                choiceList = new ArrayList<Choice>();
-                fillBlankList = new ArrayList<FillBlank>();
-                essayList = new ArrayList<Essay>();
-/*                  有问题
-                    List<QuestionMain> questionMainList1 = questionMainService.findByParentId(fatherQuestionMainList.get(i).getId());
-                    while(questionMainList1.size()>0){
-
-                        if (sonQuestionMainList.get(j).getParent_question_id() == fatherQuestionMainList.get(i).getId()) {
-                            if (sonQuestionMainList.get(j).getContent_type().equals("CHOICE")) {
-                                choice = choiceService.getById(sonQuestionMainList.get(j).getQuestion_id());
-                                choiceOption = choiceOptionService.getById(sonQuestionMainList.get(j).getQuestion_id());
-                                choice.setChoiceOptionMap(choiceOption);
-                                choiceList.add(choice);
-                            } else if (sonQuestionMainList.get(j).getContent_type().equals("BLANK")) {
-                                fillBlank = fillBlankService.getById(sonQuestionMainList.get(j).getQuestion_id());
-                                fillBlankList.add(fillBlank);
-                            } else if (sonQuestionMainList.get(j).getContent_type().equals("ESSAY")) {
-                                essay = essayService.getById(sonQuestionMainList.get(j).getQuestion_id());
-                                essayList.add(essay);
-                            }
-                        }
-                    }*/
-                essay.setChoiceList(choiceList);
-                essay.setFillBlankList(fillBlankList);
-                essay.setEssayList(essayList);
-
-                map.put("ESSAY--" + blankNum++, essay);
-            }
-
-        }
-        return JSONArray.toJSON(map);
+        if (jsonObject.get("id") == null)
+            return JSONArray.toJSON(ExceptionUtil.paramException());
+        Map<String, Object> resultMap = MissionProcessor.findQuestionById(jsonObject.getInteger("id"));
+        resultMap.put("msg", "插入成功！");
+        resultMap.put("code", "1");
+        return JSONArray.toJSON(resultMap);
     }
 
     /**
      * 提交学员单道题答题记录 mission3
-     * 问题，选择一道题之后，暂未考虑到有子题的情况
+     * <p>
+     * {
+     * "question_main_id" : 3,
+     * "paper_id" : 2,
+     * "user_id" : 6,
+     * "answer" : "A",
+     * "answer_time" : 19800000
+     * }
+     *
      * @param jsonObject
      * @return
      */
     @ResponseBody
     @RequestMapping("insertOneQuestion")
-    public Object InsertOneQuestion(@RequestBody JSONObject jsonObject, HttpServletRequest request) {
+    public Object insertOneQuestion(@RequestBody JSONObject jsonObject, HttpServletRequest request) {
 
-        QuestionMain questionMain = questionMainService.selectByPrimaryKey((Integer) jsonObject.get("question_main_id"));
-        Paper paper = paperService.getPaper((Integer) jsonObject.get("paper_id"));
-        String answer = jsonObject.get("answer").toString();
-        Integer answerTime = (Integer) jsonObject.get("answer_time");
+        if (jsonObject.getInteger("question_main_id") == null || jsonObject.getInteger("paper_id") == null || jsonObject.getInteger("answer_time") == null || jsonObject.getInteger("user_id") == null)
+            return ExceptionUtil.paramException();
+        Paper paper = paperService.getPaper(jsonObject.getInteger("paper_id"));
+        String answer = jsonObject.getString("answer");
+        Integer answerTime = jsonObject.getInteger("answer_time");
+        String tableChoose = "ent_paper_user_question_" + String.format("%02d", jsonObject.getInteger("user_id") % 100);
+        Map<String, Object> map = new HashMap<String, Object>();
+        QuestionMain questionMain = questionMainService.selectByPrimaryKey(jsonObject.getInteger("question_main_id"));
         String contentType = questionMain.getContent_type();
         Integer questionId = questionMain.getQuestion_id();
-        String tableChoose = "ent_paper_user_question_" + String.format("%02d", (Integer) jsonObject.get("user_id") % 100);
-        Map<String, Object> map = new HashMap<String, Object>();
+
 
         //本步骤需要：1、在生成学员答卷记录时将paper_user_record_id放入session中；2、从session中取出paper_user_record_id放入map，此处暂时以1代替
         //map.put("paper_user_record_id", request.getAttribute("paper_user_record_id"));
         map.put("paper_user_record_id", 1);
 
-        map.put("question_main_id", (Integer) jsonObject.get("question_main_id"));
+        map.put("question_main_id", jsonObject.getInteger("question_main_id"));
         map.put("questionId", questionId);
+        map.put("question_main_id", questionMain.getId());
+        map.put("question_type", "'" + questionMain.getQuestion_type() + "'");
+        map.put("contentType", contentType);
         map.put("answer", answer);
         map.put("paper_id", paper.getId());
         map.put("answer_time", answerTime);
@@ -229,31 +181,39 @@ public class Mission {
         map.put("update_time", new Date());
         map.put("operator", "'lph'");
         map.put("delete_flag", 0);
-        map.put("question_main_id", questionMain.getId());
-        map.put("question_type", "'" + questionMain.getQuestion_type() + "'");
+
         map.put("question_id_source", "'t_question_main'");
         map.put("table_choose", tableChoose);
-        map.put("contentType", contentType);
 
-        map = test(map);
-        entPaperUserQuestionService.insertOne(map);
-        return Float.parseFloat(map.get("score").toString()) > 0 ? "right" : "wrong";
+        map = MissionProcessor.insertData(map);
+        try {
+            entPaperUserQuestionService.insertOne(map);
+        } catch (Exception e) {
+            return ExceptionUtil.dbException();
+        }
+        Map<String,Object> resultMap = new HashMap<String,Object>();
+        resultMap.put("msg", "插入成功！");
+        resultMap.put("code", "1");
+        resultMap.put("result",Float.parseFloat(map.get("score").toString()) > 0 ? "right" : "wrong");
+        return resultMap;
     }
 
     /**
-     *  学员交卷，存储学员所有的答题记录，非主观题即时出分
-     *  问题：1、可改为批处理插入sql
-     *         2、分数计算时不计算根
+     * 学员交卷，存储学员所有的答题记录，非主观题即时出分
+     *
      * @param jsonObject
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping("commitPaper")
+/*    @Transactional*/
     public Object commitPaper(@RequestBody JSONObject jsonObject, HttpServletRequest request) {
 
-        //  QuestionMain questionMain = questionMainService.selectByPrimaryKey((Integer) jsonObject.get("question_main_id"));
-        Paper paper = paperService.getPaper((Integer) jsonObject.get("paper_id"));
+        if (jsonObject.getInteger("paper_id") == null || jsonObject.get("answer_all") == null || jsonObject.getInteger("user_id") == null)
+            return ExceptionUtil.paramException();
+
+        Paper paper = paperService.getPaper(jsonObject.getInteger("paper_id"));
         List<HashMap> answer_all = (List) jsonObject.get("answer_all");
         String tableChoose = "ent_paper_user_question_" + String.format("%02d", (Integer) jsonObject.get("user_id") % 100);
 
@@ -282,12 +242,20 @@ public class Mission {
             map.put("contentType", questionMain.getContent_type());
             map.put("questionId", questionMain.getQuestion_id());
 
-            map = test(map);
-            totalScore += Float.parseFloat(map.get("score").toString());
+            map = MissionProcessor.insertData(map);
+            if (questionMainService.getNumByParenetId(questionMain.getId()) == 0)
+                totalScore += Float.parseFloat(map.get("score").toString());
 
-            entPaperUserQuestionService.insertOne(map);
-
+            try {
+                entPaperUserQuestionService.insertOne(map);
+            } catch (Exception e) {
+                return ExceptionUtil.dbException();
+            }
         }
-        return totalScore;
+        Map<String,Object> resultMap = new HashMap<String,Object>();
+        resultMap.put("msg", "插入成功！");
+        resultMap.put("code", "1");
+        resultMap.put("非主观题得分：",totalScore);
+        return resultMap;
     }
 }

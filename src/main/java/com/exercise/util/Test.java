@@ -2,6 +2,9 @@ package com.exercise.util;
 
 import com.alibaba.fastjson.JSONArray;
 
+/**
+ * 可能会用到题目迭代中
+ */
 public class Test {
     public static void main(String[] args) {
         TreeNode root = new TreeNode("0", "0", "000000", "00JJJ");

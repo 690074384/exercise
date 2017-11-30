@@ -21,4 +21,8 @@ public class QuestionMainServiceImpl implements QuestionMainService {
     public QuestionMain selectByPrimaryKey(int qid) {
         return questionMainMapper.selectByPrimaryKey(qid);
     }
+
+    public Integer getNumByParenetId(Integer id) {
+        return questionMainMapper.getNumByParenetId(id);
+    }
 }

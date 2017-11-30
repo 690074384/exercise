@@ -18,4 +18,6 @@ public interface QuestionMainMapper {
     int updateByPrimaryKey(QuestionMain record);
 
     List<QuestionMain> findQuestionByPaperId(int id);
+
+    Integer getNumByParenetId(Integer id);
 }

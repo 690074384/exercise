@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +33,9 @@ public class MissionProcessor {
     @Resource
     private ChoiceOptionService choiceOptionService;
 
+    @Resource
+    private EssayService essayService;
+
     @PostConstruct
     public void init() {
         missionProcessor = this;
@@ -43,7 +48,7 @@ public class MissionProcessor {
 
     }
 
-    public static Map<String, Object> test(Map<String, Object> map) {
+    public static Map<String, Object> insertData(Map<String, Object> map) {
         QuestionMain questionMain = missionProcessor.questionMainService.selectByPrimaryKey((Integer) map.get("question_main_id"));
 
         if (map.get("contentType").toString().equals("BLANK")) {
@@ -102,9 +107,142 @@ public class MissionProcessor {
             map.put("correct_flag", 4);
         }
 
-        map.put("answer" ,"'" + map.get("answer").toString()+"'");
+        map.put("answer", "'" + map.get("answer").toString() + "'");
 
         return map;
+    }
+
+    public static Map<String, Object> findQuestionById(Integer paperId) {
+
+        List<QuestionMain> questionMainList = missionProcessor.questionMainService.findQuestionByPaperId(paperId);
+
+        return setSon(questionMainList, paperId);
+    }
+
+    public static Map<String, Object> setSon(List<QuestionMain> questionMainList, Integer paperId) {
+        Map<String, Object> map = new HashMap();
+
+        List<QuestionMain> fatherQuestionMainList = getFatherQuestionMain(questionMainList);
+        Paper paper = missionProcessor.paperService.getPaper(paperId);
+        map.put("paper", paper);
+        Choice choice;
+        List<ChoiceOption> choiceOption;
+        Essay essay;
+        FillBlank fillBlank;
+
+        int choiceNum = 1;
+        int essayNum = 1;
+        int blankNum = 1;
+        for (int i = 0; i < fatherQuestionMainList.size(); i++) {
+
+            if (fatherQuestionMainList.get(i).getContent_type() != null && fatherQuestionMainList.get(i).getContent_type().equals("CHOICE")) {
+
+                choice = missionProcessor.choiceService.getById(fatherQuestionMainList.get(i).getQuestion_id());
+                choiceOption = missionProcessor.choiceOptionService.getById(fatherQuestionMainList.get(i).getQuestion_id());
+                choice.setChoiceOptionMap(choiceOption);
+
+                map.put("CHOICE--" + choiceNum++, choice);
+                System.out.println("choice-" + fatherQuestionMainList.get(i).getId());
+            } else if (fatherQuestionMainList.get(i).getContent_type() != null && fatherQuestionMainList.get(i).getContent_type().equals("BLANK")) {
+                fillBlank = missionProcessor.fillBlankService.getById(fatherQuestionMainList.get(i).getQuestion_id());
+
+                map.put("BLANK--" + essayNum++, fillBlank);
+                System.out.println("blank" + fatherQuestionMainList.get(i).getId());
+            } else if (fatherQuestionMainList.get(i).getContent_type() != null && fatherQuestionMainList.get(i).getContent_type().equals("ESSAY")) {
+
+                essay = getEssayDetail(questionMainList, fatherQuestionMainList.get(i));
+                map.put("ESSAY--" + blankNum++, essay);
+            }
+
+        }
+        return map;
+    }
+
+    public static Essay getEssayDetail(List<QuestionMain> questionMainList, QuestionMain fatherQuestionMain) {
+
+        List<QuestionMain> sonQuestionMainList = getSonQuestionMain(questionMainList);
+        List<QuestionMain> grandSonQuestionMainList;
+        List<Choice> choiceList = new ArrayList<Choice>();
+        List<FillBlank> fillBlankList = new ArrayList<FillBlank>();
+        List<Essay> essayList = new ArrayList<Essay>();
+        List<Choice> choiceList2 = new ArrayList<Choice>();
+        List<FillBlank> fillBlankList2 = new ArrayList<FillBlank>();
+        List<Essay> essayList2 = new ArrayList<Essay>();
+        Choice choice;
+        List<ChoiceOption> choiceOption;
+        Essay essay1 = missionProcessor.essayService.getById(fatherQuestionMain.getQuestion_id());
+        Essay essay2 = new Essay();
+        FillBlank fillBlank;
+        Essay essay;
+
+        for (int i = 0; i < sonQuestionMainList.size(); i++) {
+            if (sonQuestionMainList.get(i).getParent_question_id().equals(fatherQuestionMain.getId())) {
+                if (sonQuestionMainList.get(i).getContent_type().equals("CHOICE")) {
+                    choice = missionProcessor.choiceService.getById(sonQuestionMainList.get(i).getQuestion_id());
+                    choiceOption = missionProcessor.choiceOptionService.getById(sonQuestionMainList.get(i).getQuestion_id());
+                    choice.setChoiceOptionMap(choiceOption);
+                    choiceList.add(choice);
+                } else if (sonQuestionMainList.get(i).getContent_type().equals("BLANK")) {
+                    fillBlank = missionProcessor.fillBlankService.getById(sonQuestionMainList.get(i).getQuestion_id());
+                    fillBlankList.add(fillBlank);
+                } else if (sonQuestionMainList.get(i).getContent_type().equals("ESSAY")) {
+                    grandSonQuestionMainList = getSonQuestionMain(sonQuestionMainList);
+                    if (grandSonQuestionMainList.size()==0) {
+                        essay = missionProcessor.essayService.getById(sonQuestionMainList.get(i).getQuestion_id());
+                        essayList.add(essay);
+                    } else {
+                        essay2 = missionProcessor.essayService.getById(sonQuestionMainList.get(i).getQuestion_id());
+                        for (int j = 0; j < grandSonQuestionMainList.size(); j++) {
+                            if (sonQuestionMainList.get(i).getId().equals(grandSonQuestionMainList.get(j).getParent_question_id())) {
+                                if (grandSonQuestionMainList.get(j).getContent_type().equals("CHOICE")) {
+                                    choice = missionProcessor.choiceService.getById(grandSonQuestionMainList.get(j).getQuestion_id());
+                                    choiceOption = missionProcessor.choiceOptionService.getById(grandSonQuestionMainList.get(j).getQuestion_id());
+                                    choice.setChoiceOptionMap(choiceOption);
+                                    choiceList2.add(choice);
+                                    essay2.setChoiceList(choiceList2);
+                                } else if (grandSonQuestionMainList.get(j).getContent_type().equals("BLANK")) {
+                                    fillBlank = missionProcessor.fillBlankService.getById(grandSonQuestionMainList.get(j).getQuestion_id());
+                                    fillBlankList2.add(fillBlank);
+                                    essay2.setFillBlankList(fillBlankList2);
+                                } else if (grandSonQuestionMainList.get(j).getContent_type().equals("ESSAY")) {
+                                    essay = missionProcessor.essayService.getById(grandSonQuestionMainList.get(j).getQuestion_id());
+                                    essayList2.add(essay);
+                                    essay2.setEssayList(essayList2);
+                                }
+                            }
+                        }
+                        essayList.add(essay2);
+
+                    }
+                }
+            }
+        }
+        essay1.setChoiceList(choiceList);
+        essay1.setFillBlankList(fillBlankList);
+        essay1.setEssayList(essayList);
+        return essay1;
+    }
+
+    public static List<QuestionMain> getFatherQuestionMain(List<QuestionMain> questionMainList) {
+
+        List<QuestionMain> fatherQuestionMainList = new ArrayList<QuestionMain>();
+
+        for (int i = 0; i < questionMainList.size(); i++) {
+            if (questionMainList.get(i).getParent_question_id() != null && questionMainList.get(i).getParent_question_id() == 0)
+                fatherQuestionMainList.add(questionMainList.get(i));
+        }
+        return fatherQuestionMainList;
+    }
+
+    public static List<QuestionMain> getSonQuestionMain(List<QuestionMain> questionMainList) {
+
+        List<QuestionMain> sonQuestionMainList = new ArrayList<QuestionMain>();
+
+        for (int i = 0; i < questionMainList.size(); i++) {
+            if (questionMainList.get(i).getParent_question_id() != null && questionMainList.get(i).getParent_question_id() != 0)
+                sonQuestionMainList.add(questionMainList.get(i));
+        }
+        return sonQuestionMainList;
     }
 
    /* public static Choice setSonList(List<QuestionMain> questionMainList) {

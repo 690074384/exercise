@@ -233,4 +233,33 @@ public class QuestionMain {
     public void setDelete_flag(Byte delete_flag) {
         this.delete_flag = delete_flag;
     }
+
+    @Override
+    public String toString() {
+        return "QuestionMain{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", source_type='" + source_type + '\'' +
+                ", question_type='" + question_type + '\'' +
+                ", content_type='" + content_type + '\'' +
+                ", question_id=" + question_id +
+                ", score=" + score +
+                ", knowledge_tree_id=" + knowledge_tree_id +
+                ", main_node_id=" + main_node_id +
+                ", vice_node_id_1=" + vice_node_id_1 +
+                ", vice_node_id_2=" + vice_node_id_2 +
+                ", difficulty_value=" + difficulty_value +
+                ", exam_province=" + exam_province +
+                ", exam_session=" + exam_session +
+                ", current_version=" + current_version +
+                ", parent_question_id=" + parent_question_id +
+                ", sequence=" + sequence +
+                ", invalid_flag=" + invalid_flag +
+                ", create_time=" + create_time +
+                ", creator='" + creator + '\'' +
+                ", update_time=" + update_time +
+                ", operator='" + operator + '\'' +
+                ", delete_flag=" + delete_flag +
+                '}';
+    }
 }
