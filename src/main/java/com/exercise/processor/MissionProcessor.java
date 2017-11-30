@@ -171,7 +171,7 @@ public class MissionProcessor {
         Choice choice;
         List<ChoiceOption> choiceOption;
         Essay essay1 = missionProcessor.essayService.getById(fatherQuestionMain.getQuestion_id());
-        Essay essay2 = new Essay();
+        Essay essay2;
         FillBlank fillBlank;
         Essay essay;
 
